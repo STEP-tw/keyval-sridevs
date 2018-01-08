@@ -5,8 +5,11 @@
   "main": "src/index.js",
   "dependencies": {},
   "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint-plugin-mocha": "^4.11.0",
+    "i": "^0.3.6",
     "mocha": "^3.4.2",
-    "chai": "^4.1.2"
+    "npm": "^5.6.0"
   },
   "scripts": {
     "test": "mocha"
