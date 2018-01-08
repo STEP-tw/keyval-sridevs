@@ -219,7 +219,7 @@ describe("mixed values with both quotes and without",function(){
 
   it("parse simple values with and without quotes(quoted values first)",function(){
     let expected={key:"value",anotherkey:"anothervalue"};
-    let actual = kvParser.parse("anotherkey=\"anothervalue\" key=value");
+    let actual = kvParser.parse("key=value anotherkey=\"anothervalue\" ");
     assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 });
@@ -238,7 +238,7 @@ describe("error handling",function(){
   });
 
   it("throws error on missing value when value is unquoted",function(){
-    assert.throws(
+    assert.isTrue(
       () => {
         kvParser.parse("key=")
       },
