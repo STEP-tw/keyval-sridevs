@@ -1,7 +1,7 @@
 const src=function(filePath){return "../src/"+filePath};
 const errors=function(filePath){return "../src/errors/"+filePath};
 
-const assert=require('assert');
+const assert=require('chai').assert;
 const Parser=require(src('index.js')).Parser;
 const MissingValueError=require(errors('missingValueError.js'));
 const MissingEndQuoteError=require(errors('missingEndQuoteError.js'));
@@ -18,7 +18,7 @@ describe("parse basic key values",function(){
 
   it("parses an empty string",function(){
     let actual=kvParser.parse("");
-    assert.equal(0,actual.length());
+    assert.isEmpty(actual);
   });
 
   it("parse key=value",function(){
