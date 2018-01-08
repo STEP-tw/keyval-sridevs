@@ -175,17 +175,20 @@ describe("single values with quotes",function(){
 describe("multiple values with quotes",function(){
   it("parse more than one value with quotes",function(){
     let expected={key:"va lue",anotherkey:"another value"};
-    assert.deepEqual(expected,kvParser.parse("key=\"va lue\" anotherkey=\"another value\""));
+    let actual = kvParser.parse("key=\"va lue\" anotherkey=\"another value\"");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 
   it("parse more than one value with quotes with leading spaces",function(){
     let expected={key:"va lue",anotherkey:"another value"};
-    assert.deepEqual(expected,kvParser.parse("key= \"va lue\" anotherkey= \"another value\""));
+    let actual = kvParser.parse("key= \"va lue\" anotherkey= \"another value\"");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 
   it("parse more than one value with quotes when keys have trailing spaces",function(){
     let expected={key:"va lue",anotherkey:"another value"};
-    assert.deepEqual(expected,kvParser.parse("key = \"va lue\" anotherkey = \"another value\""));
+    let actual = kvParser.parse("key = \"va lue\" anotherkey = \"another value\"");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 });
 
