@@ -119,22 +119,26 @@ describe("multiple keys",function(){
 
   it("parse more than one key",function(){
     let expected={key:"value",anotherkey:"anothervalue"};
-    assert.deepEqual(expected,kvParser.parse("key=value anotherkey=anothervalue"));
+    let actual = kvParser.parse("key=value anotherkey=anothervalue");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 
   it("parse more than one key when keys have leading spaces",function(){
     let expected={key:"value",anotherkey:"anothervalue"};
-    assert.deepEqual(expected,kvParser.parse("   key=value anotherkey=anothervalue"));
+    let actual = kvParser.parse("   key=value anotherkey=anothervalue");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 
   it("parse more than one key when keys have trailing spaces",function(){
     let expected={key:"value",anotherkey:"anothervalue"};
-    assert.deepEqual(expected,kvParser.parse("key  =value anotherkey  =anothervalue"));
+    let actual = kvParser.parse("key  =value anotherkey  =anothervalue");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 
   it("parse more than one key when keys have leading and trailing spaces",function(){
     let expected={key:"value",anotherkey:"anothervalue"};
-    assert.deepEqual(expected,kvParser.parse("  key  =value anotherkey  =anothervalue"));
+    let actual = kvParser.parse("  key  =value anotherkey  =anothervalue");
+    assert.equal(JSON.stringify(expected),JSON.stringify(actual));
   });
 });
 
